@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- Scan the the domain package for Spring repositories and services -->
+    <context:component-scan base-package="ru.tsystems.railway.service" />
+
+    <!-- Look up the database in JNDI -->
+    <jee:jndi-lookup id="dataSource" jndi-name="java:jboss/datasources/RailwayDS"
+                     expected-type="javax.sql.DataSource" />
+
+    <!-- Look up the container deployed EntityManager -->
+    <jee:jndi-lookup jndi-name="java:comp/env/railway/EntityManager"
+                     id="entityManager" expected-type="javax.persistence.EntityManager" />
+
+    <!-- Use JTA transactions with the container-deployed EntityManager -->
+    <tx:jta-transaction-manager />
+
+    <!-- Use declarative transactions on the services -->
+    <tx:annotation-driven />
+
+</beans>

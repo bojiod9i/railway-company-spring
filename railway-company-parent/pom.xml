@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.tsystems</groupId>
+    <artifactId>railway-company-parent</artifactId>
+    <version>${build.version}</version>
+
+    <packaging>pom</packaging>
+
+    <properties>
+		<build.version>1.0.SNAPSHOT</build.version>
+        <javaee-api.version>7.0</javaee-api.version>
+        <slf4j.version>1.7.12</slf4j.version>
+        <spring.version>4.0.7.RELEASE</spring.version>
+    </properties>
+
+    <modules>
+        <module>../railway-company-domain</module>
+        <module>../railway-company-service</module>
+		<module>../railway-company-web</module>
+    </modules>
+
+</project>
