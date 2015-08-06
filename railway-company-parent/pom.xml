@@ -13,6 +13,7 @@
         <javaee-api.version>7.0</javaee-api.version>
         <slf4j.version>1.7.12</slf4j.version>
         <spring.version>4.0.7.RELEASE</spring.version>
+        <spring-security.version>4.0.2.RELEASE</spring-security.version>
     </properties>
 
     <modules>
