@@ -1,11 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>railway-company-service</artifactId>
     <packaging>jar</packaging>
-	<version>${build.version}</version>
-	
+    <version>${build.version}</version>
+
     <parent>
         <groupId>ru.tsystems</groupId>
         <artifactId>railway-company-parent</artifactId>
@@ -13,8 +13,12 @@
         <relativePath>../railway-company-parent</relativePath>
     </parent>
 
-    <dependencies>
+    <properties>
+        <velocity.version>1.7</velocity.version>
+    </properties>
 
+
+    <dependencies>
         <!--Internal-->
         <dependency>
             <groupId>ru.tsystems</groupId>
@@ -29,7 +33,6 @@
             <version>${slf4j.version}</version>
         </dependency>
 
-
         <!--Spring-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -43,10 +46,28 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
+        <!--Spting Security-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+
+        <!--Other-->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

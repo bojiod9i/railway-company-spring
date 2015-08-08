@@ -14,7 +14,6 @@
     </parent>
 
     <dependencies>
-
         <!-- JavaEE API -->
         <dependency>
             <groupId>javax</groupId>
@@ -29,5 +28,4 @@
             <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
-
 </project>
