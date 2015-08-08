@@ -6,6 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+/**
+ * Simple JavaBean domain object representing a station.
+ *
+ * @author lazukovvs@gmail.com
+ */
 @Entity
 @Table(name = "Station")
 public class Station extends AbstractDomainEntity {

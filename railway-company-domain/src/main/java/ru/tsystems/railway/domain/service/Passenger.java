@@ -7,6 +7,11 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
+/**
+ * Simple JavaBean domain object representing a passenger.
+ *
+ * @author lazukovvs@gmail.com
+ */
 @Entity
 @Table(name = "Passenger")
 public class Passenger extends AbstractDomainEntity {

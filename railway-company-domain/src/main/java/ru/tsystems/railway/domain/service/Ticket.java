@@ -5,6 +5,11 @@ import ru.tsystems.railway.domain.AbstractDomainEntity;
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * Simple JavaBean domain object representing a ticket.
+ *
+ * @author lazukovvs@gmail.com
+ */
 @Entity
 @Table(name = "Ticket")
 public class Ticket extends AbstractDomainEntity {

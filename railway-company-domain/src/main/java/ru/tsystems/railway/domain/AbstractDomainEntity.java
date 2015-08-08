@@ -3,6 +3,11 @@ package ru.tsystems.railway.domain;
 
 import javax.persistence.*;
 
+/**
+ * Simple JavaBean domain object with an id property. Used as a base class for objects needing this property.
+ *
+ * @author lazukovvs@gmail.com
+ */
 @MappedSuperclass
 public abstract class AbstractDomainEntity {
 
@@ -19,6 +24,11 @@ public abstract class AbstractDomainEntity {
         this.id = id;
     }
 
+    /**
+     * Indicates that this instance has a persisted copy.
+     *
+     * @return true if the object has a persisted copy.
+     */
     public boolean isPersistent() {
         return getId() != null && getId() > 0;
     }

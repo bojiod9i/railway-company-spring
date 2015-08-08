@@ -8,6 +8,11 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
+/**
+ * Simple JavaBean domain object representing a user of service.
+ *
+ * @author lazukovvs@gmail.com
+ */
 @Entity
 @Table(name = "User")
 public class User extends AbstractDomainEntity {

@@ -5,6 +5,12 @@ import ru.tsystems.railway.domain.AbstractDomainEntity;
 import javax.persistence.*;
 import java.util.Date;
 
+
+/**
+ * Simple JavaBean domain object representing a route between two stations.
+ *
+ * @author lazukovvs@gmail.com
+ */
 @Entity
 @Table(name = "Route")
 public class Route extends AbstractDomainEntity {
