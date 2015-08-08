@@ -9,9 +9,10 @@ import java.util.Set;
 @Table(name = "Train")
 public class Train extends AbstractDomainEntity {
 
+    @Enumerated(EnumType.STRING)
+    private Period period;
     @OneToMany(mappedBy = "train", fetch = FetchType.EAGER)
     private Set<Route> routes;
-
     @Column(name = "SEATS")
     private Integer seats;
 
@@ -36,5 +37,17 @@ public class Train extends AbstractDomainEntity {
 
     public void setSeats(Integer seats) {
         this.seats = seats;
+    }
+
+    public Period getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(Period period) {
+        this.period = period;
+    }
+
+    public enum Period {
+        SINGLE, EVERYWEEK, EVERYDAY, EVERYMONTH
     }
 }

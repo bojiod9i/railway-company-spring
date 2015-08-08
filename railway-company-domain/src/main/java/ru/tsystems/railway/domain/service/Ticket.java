@@ -9,7 +9,7 @@ import java.util.Set;
 @Table(name = "Ticket")
 public class Ticket extends AbstractDomainEntity {
 
-    @OneToMany(mappedBy = "Route", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "ticket", fetch = FetchType.EAGER)
     private Set<Route> routes;
 
     @ManyToOne

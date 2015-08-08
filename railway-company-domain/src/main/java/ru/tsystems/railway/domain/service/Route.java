@@ -14,6 +14,10 @@ public class Route extends AbstractDomainEntity {
     private Train train;
 
     @ManyToOne
+    @JoinColumn(name = "TicketId")
+    private Ticket ticket;
+
+    @ManyToOne
     @JoinColumn(name = "DepartureStationId")
     private Station departureStation;
 
@@ -23,11 +27,11 @@ public class Route extends AbstractDomainEntity {
 
     @Column(name = "DepartureDate")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date departureCalendar;
+    private Date departureDate;
 
     @Column(name = "ArrivalCalendar")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date arrivalCalendar;
+    private Date arrivalDate;
 
     @Column(name = "Cost")
     private Double cost;
@@ -59,20 +63,20 @@ public class Route extends AbstractDomainEntity {
         this.arrivalStation = arrivalStation;
     }
 
-    public Date getDepartureCalendar() {
-        return departureCalendar;
+    public Date getDepartureDate() {
+        return departureDate;
     }
 
-    public void setDepartureCalendar(Date departureCalendar) {
-        this.departureCalendar = departureCalendar;
+    public void setDepartureDate(Date departureDate) {
+        this.departureDate = departureDate;
     }
 
-    public Date getArrivalCalendar() {
-        return arrivalCalendar;
+    public Date getArrivalDate() {
+        return arrivalDate;
     }
 
-    public void setArrivalCalendar(Date arrivalCalendar) {
-        this.arrivalCalendar = arrivalCalendar;
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
     }
 
     public Double getCost() {
@@ -81,5 +85,13 @@ public class Route extends AbstractDomainEntity {
 
     public void setCost(Double cost) {
         this.cost = cost;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }

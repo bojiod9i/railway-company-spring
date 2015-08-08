@@ -23,7 +23,7 @@ public class Passenger extends AbstractDomainEntity {
     @Column(name = "Birthday")
     private Date birthday;
 
-    @OneToMany(mappedBy = "ticket", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "passenger", fetch = FetchType.EAGER)
     private Set<Ticket> tickets;
 
     protected Passenger() {
