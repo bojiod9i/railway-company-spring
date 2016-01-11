@@ -1,0 +1,12 @@
+.error {
+    margin: 20px;
+}
+
+h1.error {
+    color: red;
+    font-size: 20px;
+}
+
+.error img {
+    padding-left: 50px;
+}

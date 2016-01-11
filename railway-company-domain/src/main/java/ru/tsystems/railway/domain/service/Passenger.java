@@ -1,9 +1,11 @@
 package ru.tsystems.railway.domain.service;
 
 
+import org.hibernate.validator.constraints.NotBlank;
 import ru.tsystems.railway.domain.AbstractDomainEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Set;
 
@@ -16,16 +18,16 @@ import java.util.Set;
 @Table(name = "Passenger")
 public class Passenger extends AbstractDomainEntity {
 
-    @Column(name = "Passport")
-    private String passportNumber;
-
     @Column(name = "FirstName")
+    @NotBlank
     private String firstName;
 
     @Column(name = "LastName")
+    @NotBlank
     private String lastName;
 
     @Column(name = "Birthday")
+    @NotNull
     private Date birthday;
 
     @OneToMany(mappedBy = "passenger", fetch = FetchType.EAGER)
@@ -34,19 +36,10 @@ public class Passenger extends AbstractDomainEntity {
     protected Passenger() {
     }
 
-    public Passenger(String passportNumber, String firstName, String lastName, Date birthday) {
-        this.passportNumber = passportNumber;
+    public Passenger(String firstName, String lastName, Date birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
-    }
-
-    public String getPassportNumber() {
-        return passportNumber;
-    }
-
-    public void setPassportNumber(String passportNumber) {
-        this.passportNumber = passportNumber;
     }
 
     public String getFirstName() {

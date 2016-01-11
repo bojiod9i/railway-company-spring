@@ -6,7 +6,15 @@
     <persistence-unit name="RailwayPersistenceUnit" transaction-type="JTA">
         <jta-data-source>java:jboss/datasources/RailwayDS</jta-data-source>
         <class>ru.tsystems.railway.domain.service.Station</class>
+        <class>ru.tsystems.railway.domain.service.Ticket</class>
+        <class>ru.tsystems.railway.domain.service.Passenger</class>
+        <class>ru.tsystems.railway.domain.service.Route</class>
+        <class>ru.tsystems.railway.domain.service.Train</class>
+        <class>ru.tsystems.railway.domain.accounts.User</class>
         <properties>
+            <!--<property name="hibernate.connection.useUnicode" value="true" />-->
+            <!--<property name="hibernate.connection.characterEncoding" value="utf8" />-->
+            <!--<property name="hibernate.connection.charSet" value="utf8" />-->
             <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.show_sql" value="true"/>
         </properties>

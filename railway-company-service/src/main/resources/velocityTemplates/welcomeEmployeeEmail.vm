@@ -1,0 +1,5 @@
+Employee ${userEmail} has successfully completed the registration!
+#if ($password)
+Generated password: ${password}
+#end
+Welcome to Railway Service.

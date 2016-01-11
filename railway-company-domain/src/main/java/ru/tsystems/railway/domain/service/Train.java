@@ -1,8 +1,11 @@
 package ru.tsystems.railway.domain.service;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import ru.tsystems.railway.domain.AbstractDomainEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 /**
@@ -15,10 +18,16 @@ import java.util.Set;
 public class Train extends AbstractDomainEntity {
 
     @Enumerated(EnumType.STRING)
+    @NotNull
     private Period period;
+
     @OneToMany(mappedBy = "train", fetch = FetchType.EAGER)
+    @OrderBy("departureDate ASC")
+    @NotEmpty
     private Set<Route> routes;
+
     @Column(name = "SEATS")
+    @Min(1)
     private Integer seats;
 
     public Train() {
@@ -53,6 +62,25 @@ public class Train extends AbstractDomainEntity {
     }
 
     public enum Period {
-        SINGLE, EVERYWEEK, EVERYDAY, EVERYMONTH
+        SINGLE(0), EVERYWEEK(1), EVERYDAY(2), EVERYMONTH(3);
+
+        int value;
+
+        Period(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return this.value;
+        }
+
+        public static Period getByValue(int value) {
+            for (Period p : Period.values()) {
+                if (p.value == value) {
+                    return p;
+                }
+            }
+            return null;
+        }
     }
 }

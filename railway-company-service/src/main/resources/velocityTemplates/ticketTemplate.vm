@@ -1,0 +1,22 @@
+<html>
+<table border="1">
+    <tr>
+        <td> Train № </td>
+        <td> Direction </td>
+        <td> Departure Date </td>
+        <td> Arrival Date </td>
+        <td> Passenger <td>
+        <td> Cost <td>
+        <td> Purchase date <td>
+    </tr>
+    <tr>
+        <td> ${trainId} </td>
+        <td> ${departureStation} - ${arrivalStation} </td>
+        <td> ${departureDate} </td>
+        <td> ${arrivalDate} </td>
+        <td> ${firstName} ${lastName} ${birthday} <td>
+        <td> ${cost}USD <td>
+        <td> ${purchaseDate} </td>
+    </tr>
+</table>
+</html>

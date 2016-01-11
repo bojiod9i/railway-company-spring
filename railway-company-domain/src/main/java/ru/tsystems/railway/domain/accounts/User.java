@@ -1,10 +1,12 @@
 package ru.tsystems.railway.domain.accounts;
 
+import org.hibernate.validator.constraints.NotBlank;
 import ru.tsystems.railway.domain.AbstractDomainEntity;
 import ru.tsystems.railway.domain.service.Passenger;
 import ru.tsystems.railway.domain.service.Ticket;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Set;
 
@@ -18,13 +20,17 @@ import java.util.Set;
 public class User extends AbstractDomainEntity {
 
     @Column(name = "Email", nullable = false, unique = true)
+    @NotBlank
     private String email;
     @Column(name = "Password", nullable = false)
+    @NotBlank
     private String password;
     @Column(name = "UserRole")
     @Enumerated(EnumType.STRING)
+    @NotNull
     private UserRole userRole;
     @Column(name = "Balance")
+    @NotNull
     private Double balance;
     @ManyToMany
     @JoinTable(name = "PassengerClientRelation",
@@ -33,6 +39,7 @@ public class User extends AbstractDomainEntity {
     private Set<Passenger> passengers;
     @OneToMany
     @JoinColumn(name = "TicketId")
+    @OrderBy("purchaseDate DESC")
     private Set<Ticket> tickets;
 
     @Column(name = "RegistrationDate", nullable = false)
@@ -46,6 +53,7 @@ public class User extends AbstractDomainEntity {
         this.email = email;
         this.password = password;
         this.userRole = userRole;
+        this.balance = 0D;
     }
 
     public String getEmail() {
@@ -73,11 +81,7 @@ public class User extends AbstractDomainEntity {
     }
 
     public Double getBalance() {
-        if (balance == null) {
-            return new Double(0);
-        } else {
-            return balance;
-        }
+        return balance;
     }
 
     public void setBalance(Double balance) {

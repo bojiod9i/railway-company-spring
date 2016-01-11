@@ -4,6 +4,7 @@ import ru.tsystems.railway.domain.AbstractDomainEntity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 
 /**
@@ -15,13 +16,14 @@ import java.util.Date;
 @Table(name = "Route")
 public class Route extends AbstractDomainEntity {
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "route_ticket_relation", joinColumns = {@JoinColumn(name = "RouteId", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "TicketId", nullable = false)})
+    private Set<Ticket> tickets;
+
     @ManyToOne
     @JoinColumn(name = "TrainId")
     private Train train;
-
-    @ManyToOne
-    @JoinColumn(name = "TicketId")
-    private Ticket ticket;
 
     @ManyToOne
     @JoinColumn(name = "DepartureStationId")
@@ -93,11 +95,11 @@ public class Route extends AbstractDomainEntity {
         this.cost = cost;
     }
 
-    public Ticket getTicket() {
-        return ticket;
+    public Set<Ticket> getTickets() {
+        return tickets;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }

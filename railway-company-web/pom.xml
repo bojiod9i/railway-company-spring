@@ -25,7 +25,6 @@
         <apache-commons.version>3.4</apache-commons.version>
     </properties>
 
-
     <dependencies>
         <!--Internal-->
         <dependency>
@@ -182,6 +181,18 @@
     <build>
         <finalName>railway-company</finalName>
         <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
